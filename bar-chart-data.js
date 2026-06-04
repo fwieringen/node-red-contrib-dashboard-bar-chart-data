@@ -104,7 +104,7 @@ function clearNode(msg, myNode, store) {
 	let topics = store.get('topics') || [];
 	let topicsOld = store.get('topics') || [];
 	//maybe only 1 specific topic should be cleared
-	if (msg.topic != "") {
+	if (msg.topic) {
 		topics = [msg.topic];
 	}
 
@@ -116,7 +116,7 @@ function clearNode(msg, myNode, store) {
 
 	//clear data_counter array
 	let dataCounterNew = [];
-	if (msg.topic != "" && topicsOld.length > 1) {
+	if (msg.topic && topicsOld.length > 1) {
 		dataCounterNew = store.get('data_counter') || [];
 		dataCounterNew.splice(topicsOld.indexOf(msg.topic), 1);
 	}
@@ -124,7 +124,7 @@ function clearNode(msg, myNode, store) {
 
 	//clear topic array (or only specific topic)
 	let topicsNew = [];
-	if (msg.topic != "" && topicsOld.length > 1) {
+	if (msg.topic && topicsOld.length > 1) {
 		topicsNew = topicsOld;
 		topicsNew.splice(topicsOld.indexOf(msg.topic), 1);
 	}
