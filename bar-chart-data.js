@@ -113,15 +113,7 @@ function clearNode(msg, myNode, store) {
 		store.set(topics[i] + '_data', {});
 		store.set(topics[i] + '_last', {});
 	}
-
-	//clear data_counter array
-	let dataCounterNew = [];
-	if (msg.topic && topicsOld.length > 1) {
-		dataCounterNew = store.get('data_counter') || [];
-		dataCounterNew.splice(topicsOld.indexOf(msg.topic), 1);
-	}
-	store.set('data_counter', dataCounterNew);
-
+	
 	//clear topic array (or only specific topic)
 	let topicsNew = [];
 	if (msg.topic && topicsOld.length > 1) {
