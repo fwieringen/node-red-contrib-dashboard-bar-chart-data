@@ -110,8 +110,8 @@ function clearNode(msg, myNode, store) {
 
 	//for all topics
 	for (let i = 0; i < topics.length; i++) {
-		store.set(topics[i] + '_data', {});
-		store.set(topics[i] + '_last', {});
+		store.set(topics[i] + '_data', undefined);
+		store.set(topics[i] + '_last', undefined);
 	}
 	
 	//clear topic array (or only specific topic)
